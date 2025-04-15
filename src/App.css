@@ -2,13 +2,9 @@
   display: flex;
 }
 
-.MT {
-  margin-top: 150px;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-.cats {
-  margin-top: 150px;
-  margin-left: 150px; 
+.content {
+  margin-left: 220px; 
+  margin-top: 100px;
+  padding: 20px; 
 }
 

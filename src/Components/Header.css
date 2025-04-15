@@ -3,16 +3,16 @@
     top: 0;
     left: 0;
     right: 0;
-  
-    transition: transform 0.5s ease-in-out;
+    margin-left: 250px;
+    background-color: transparent; 
+    transition: transform 0.3s ease-in-out;
     z-index: 1000; 
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  }
-  
-  .header.hidden {
-    transform: translateY(-100%); 
-  }
-  
-  .header.visible {
-    transform: translateY(0); 
-  }
+}
+
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+.header.visible {
+    transform: translateY(0);
+}

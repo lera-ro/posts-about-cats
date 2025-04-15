@@ -1,54 +1,66 @@
 import { useEffect, useState } from 'react';
-import MyCatsComponent from './MyCatsComponent';
+import MyCatsComponent from './Components/MyCatsComponent';
 import React from "react";
 import "./App.css";
 import Header from './Components/Header';
-
+import mockData from './Components/mockData';
+import Navbar from './Components/Navbar';
 
 function App() {
     const [myCats, setMyCats] = useState([]);
+    const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
-      const getPhotos = async () => {
-          try {
-            const responses = await Promise.all([
-              fetch(`https://api.thecatapi.com/v1/images/search`),
-              fetch(`https://api.thecatapi.com/v1/images/search`),
-              fetch(`https://api.thecatapi.com/v1/images/search`)
-              ]);
-              const data = await Promise.all(responses.map(response => response.json()));
-              const images = data.map(item => item[0].url);
-              setMyCats(images);
-          } catch (error) {
-              console.error("Ошибка при получении данных:", error);
-          }
-      };
-      getPhotos();
-  }, []);
-  
-    return(
-      <div className="App">
-        <div className="MT">
-          <p>Лента</p>
-          <p>Каналы</p>
-          <p>Видео</p>
-          <p>Сохраненное</p>
-          <p>Уведомления</p>
-          <p>Чаты</p>
-        </div>
-        
-        <div>
-          <div><Header /></div>
+        const getPhotos = async () => {
+            try {
+                const data = await new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(mockData);
+                    }, 1000);
+                });
+                
+                const images = data.map(item => item.url);
+                setMyCats(images);
+            } catch (error) {
+                console.error("Ошибка при получении данных:", error);
+            }
+        };
+        getPhotos();
+    }, []);
 
-        <div className='cats'>
-                {myCats.map((image, index) => (
-                <MyCatsComponent key={index} image={image} />
-                ))}
-            </div>
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY) {
+            setIsHeaderVisible(false);
+        } else {
+            setIsHeaderVisible(true);
+        }
+
+        setLastScrollY(currentScrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
+
+    return (
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Header isVisible={isHeaderVisible} />
+          <div className='cats'>
+              {myCats.map((image, index) => (
+                  <MyCatsComponent key={index} image={image} />
+              ))}
+          </div>
         </div>
       </div>
-    ) 
-  }
+    )
+}
   
-  export default App;
-
+export default App;
