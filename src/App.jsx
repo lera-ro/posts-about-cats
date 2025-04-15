@@ -6,17 +6,16 @@ import Header from './Components/Header';
 
 
 function App() {
-     const [myCats, setMyCats] = useState([]);
+    const [myCats, setMyCats] = useState([]);
 
     useEffect(() => {
       const getPhotos = async () => {
           try {
-              const responses = await Promise.all([
-                  fetch(`https://api.thecatapi.com/v1/images/search`),
-                  fetch(`https://api.thecatapi.com/v1/images/search`),
-                  fetch(`https://api.thecatapi.com/v1/images/search`)
+            const responses = await Promise.all([
+              fetch(`https://api.thecatapi.com/v1/images/search`),
+              fetch(`https://api.thecatapi.com/v1/images/search`),
+              fetch(`https://api.thecatapi.com/v1/images/search`)
               ]);
-
               const data = await Promise.all(responses.map(response => response.json()));
               const images = data.map(item => item[0].url);
               setMyCats(images);
@@ -24,7 +23,6 @@ function App() {
               console.error("Ошибка при получении данных:", error);
           }
       };
-
       getPhotos();
   }, []);
   

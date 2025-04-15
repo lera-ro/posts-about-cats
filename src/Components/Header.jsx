@@ -29,8 +29,7 @@ const Header = () => {
 
   return (
     <header className={`header ${isVisible ? 'visible' : 'hidden'}`}>
-      <h1>Мой сайт</h1>
-      {/* Другие элементы хедера */}
+      <h1>Лента</h1>
     </header>
   );
 };
