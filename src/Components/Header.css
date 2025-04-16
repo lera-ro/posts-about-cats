@@ -42,7 +42,7 @@
     font-family: "Inter", sans-serif;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .header {
         left: 0;
     }
