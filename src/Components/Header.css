@@ -1,18 +1,49 @@
 .header {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 290px;
     right: 0;
-    margin-left: 250px;
-    background-color: transparent; 
+    background-color: #b0aeac;
+    padding: 15px 20px;
+    z-index: 1000;
+    transform: translateY(0);
     transition: transform 0.3s ease-in-out;
-    z-index: 1000; 
+    border-bottom: 1px solid #eee;
 }
 
 .header.hidden {
     transform: translateY(-100%);
 }
 
-.header.visible {
-    transform: translateY(0);
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+@media (max-width: 768px) {
+    .header {
+        left: 0;
+    }
 }
