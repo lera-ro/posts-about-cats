@@ -1,14 +1,14 @@
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 290px;
-    right: 0;
+    left: 0;
     background-color: #b0aeac;
     padding: 15px 20px;
     z-index: 1000;
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
     border-bottom: 1px solid #eee;
+    margin: 0;
 }
 
 .header.hidden {
@@ -16,9 +16,10 @@
 }
 
 .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .header-left {
@@ -44,6 +45,6 @@
 
 @media (max-width: 600px) {
     .header {
-        left: 0;
+        margin-left: 50px;
     }
 }

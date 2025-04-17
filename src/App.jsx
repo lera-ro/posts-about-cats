@@ -5,6 +5,7 @@ import "./App.css";
 import Header from './Components/Header';
 import mockData from './Components/mockData';
 import Navbar from './Components/Navbar';
+import { Helmet } from 'react-helmet';
 
 function App() {
     const [posts, setPosts] = useState([]);
@@ -47,6 +48,14 @@ function App() {
 
     return (
         <div className="App">
+            <Helmet>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="description" content="Лента с котиками. Просматривайте фотографии и посты о котах." />
+                <meta name="keywords" content="котики, фотографии котов, лента котов" />
+                <meta name="author" content="Ваше Имя" />
+                <title>Cats</title>
+            </Helmet>
             <Navbar />
             <div className="content">
                 <Header isVisible={isHeaderVisible} />

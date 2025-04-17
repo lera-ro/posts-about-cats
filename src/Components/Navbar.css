@@ -1,14 +1,17 @@
 .navbar {
     position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 250px;
+    flex: 0 0 284px;
+    max-width: 284px;
+    width: 250px; 
     background: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+    padding: 15px;
     border-right: 1px solid #eee;
+}
+
+aside {
+    flex: 0 0 280px;
+    border-right: 1px solid #eee;
+    position: relative;
 }
 
 .logo {
@@ -26,6 +29,12 @@
 
 .logo-text {
     font-size: 20px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+}
+
+.logo-menu {
+    font-size: 16px;
     font-weight: bold;
     font-family: "Inter", sans-serif;
 }
@@ -103,12 +112,15 @@
 }
 
 @media (max-width: 600px) {
-.logo-text {
+.logo-menu, .logo-text {
     display: none;
 }
 .navbar {
     width: 50px;
     padding: 5px;
+}
+aside {
+    flex: 0 0 10px;
 }
 .logo-icon {
     width: 10px;

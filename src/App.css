@@ -4,26 +4,21 @@
 }
 
 .content {
-  flex-grow: 1;
-  margin-left: 250px;
-  padding: 80px 20px 20px;
+  flex: 1 1 auto;
+  max-width: 100%;
+  position: relative;
 }
 
 .posts {
-  max-width: 900px;
+  max-width: 520px;
   margin: 0 auto;
   padding: 20px;
 }
 
-@media (max-width: 600px) {
-  .content {
-    margin-left: 0;
-    padding-top: 60px;
-  }
-  
+@media (max-width: 600px) { 
   .posts {
     padding: 5px;
     max-width: 150px;
-    margin-left: 40px;
-  }
+    margin-left: 50px;
+  } 
 }

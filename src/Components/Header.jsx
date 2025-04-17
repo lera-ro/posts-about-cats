@@ -8,7 +8,7 @@ const Header = ({ isVisible }) => {
           <div className="header-left">
             <img 
               src="https://cdn2.thecatapi.com/images/9bo.jpg" 
-              alt="Аватар" 
+              alt="avatar" 
               className="header-avatar"
             />
             <h1 className="header-title">Лента</h1>
@@ -19,3 +19,4 @@ const Header = ({ isVisible }) => {
 };
 
 export default Header;
+
